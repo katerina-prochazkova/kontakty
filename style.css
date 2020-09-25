@@ -14,7 +14,12 @@ body {
 }
 
 /* ---------------------------------------------------- */
+body {
+  margin: 0;
+}
+
 .nastym {
+  /*flex 1 - nadpis a dlaždice*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,40 +30,118 @@ h1 {
 }
 
 .kontejner {
+  /*flex 2 - rozložení dlaždic*/
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  font-size: 18px;
 }
 
 .k1,
 .k2,
 .k3,
 .k4 {
-  border: 2px solid lightgrey;
+  /*flex 3 - foto a popis*/
+  min-height: 200px;
+  width: 250px;
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid lightgrey;
   border-radius: 10px;
-  height: auto;
-  width: 360px;
-  padding: 30px;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.foto {
+  width: auto;
+  height: auto;
+  margin: 5px;
+  text-align: center;
 }
 
 img {
   border-radius: 50%;
   border: 1px solid grey;
-  height: 60%;
-  width: 60%;
+  width: 130px;
+}
+.popis {
+  /*flex 4 - popis*/
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 h2 {
-  font-size: 25px;
-  margin: 15px;
+  margin: 10px 0 10px 0;
+  font-size: 16px;
 }
 
 p {
   margin: 0;
-  text-align: center;
+  font-size: 12px;
+}
+
+/*---pro tablet--- */
+@media screen and (min-width: 540px) and (max-width: 960px) {
+  .kontejner {
+    /*flex 2 - rozložení dlaždic*/
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .k1,
+  .k2,
+  .k3,
+  .k4 {
+    /*flex 3 - foto a popis*/
+    min-height: auto;
+    width: 45%;
+    min-width: 250px;
+    flex-direction: row;
+  }
+
+  img {
+    height: 90px;
+    width: auto;
+  }
+
+  .popis {
+    text-align: left;
+    margin-left: 10px;
+  }
+}
+
+/*---velký screen---*/
+@media screen and (min-width: 960px) {
+  .kontejner {
+    /*flex 2 - rozložení dlaždic*/
+    flex-direction: row;
+  }
+
+  .k1,
+  .k2,
+  .k3,
+  .k4 {
+    /*flex 3 - foto a popis*/
+    min-height: 200px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .foto {
+    height: auto;
+    margin: 5px;
+  }
+
+  img {
+    width: 130px;
+    height: auto;
+  }
+  .popis {
+    /*flex 4 - popis*/
+    text-align: center;
+    margin: 0;
+  }
 }
